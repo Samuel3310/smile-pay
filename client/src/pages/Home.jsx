@@ -3,6 +3,7 @@ import Card from "../components/card";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import ProgressBar from "@ramonak/react-progress-bar";
+
 import {
   FaCreditCard,
   FaChartBar,
@@ -10,6 +11,9 @@ import {
   FaWallet,
   FaMoneyCheck,
   FaHandHoldingUsd,
+  FaStar,
+  FaHandshake,
+  FaRocket,
 } from "react-icons/fa";
 
 import PaymentCard from "../components/payment-card";
@@ -36,6 +40,36 @@ const Home = () => {
     },
   ];
 
+  const features = [
+    {
+      id: 1,
+      title: "Amazing Features",
+      description:
+        "Dui nam pede mauris mus tellus. Laoreet at sapien praesent magna class aenean dictumst taciti vehicula primis.",
+      icon: <FaStar />,
+    },
+    {
+      id: 2,
+      title: "Easy Payment",
+      description:
+        "Dui nam pede mauris mus tellus. Laoreet at sapien praesent magna class aenean dictumst taciti vehicula primis.",
+      icon: <FaCreditCard />,
+    },
+    {
+      id: 3,
+      title: "Trusted Partner",
+      description:
+        "Dui nam pede mauris mus tellus. Laoreet at sapien praesent magna class aenean dictumst taciti vehicula primis.",
+      icon: <FaHandshake />,
+    },
+    {
+      id: 4,
+      title: "Fast Speed Platform",
+      description:
+        "Dui nam pede mauris mus tellus. Laoreet at sapien praesent magna class aenean dictumst taciti vehicula primis.",
+      icon: <FaRocket />,
+    },
+  ];
   return (
     <main className="w-full  bg-[#EDF4F9] pt-5 md:pt-[50px] lg:pt-[100px] relative overflow-x-hidden">
       <div
@@ -301,7 +335,7 @@ const Home = () => {
       </section>
 
       <section
-        className="flex md:justify-end md:py-20  py-14 bg-cover bg-no-repeat bg-top "
+        className="flex md:justify-end md:py-20  pt-14 pb-5 bg-cover bg-no-repeat bg-top "
         style={{
           backgroundImage:
             "linear-gradient(45deg, rgba(99, 118, 151,0.9),  rgba(127, 130, 134, 0.5)), url(./design14.jpg)",
@@ -321,7 +355,24 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      <section className="flex justify-between px-5 py-4 bg-white border-b-2 border-l-gray-500">
+        <div className=" pl-4">
+          <p className="text-6xl text-blue-500">17K+</p>
+          <span>User Download</span>
+        </div>
+        <div className="border-l-2 border-blue-500 pl-4">
+          <p className="text-6xl text-blue-500">12K+</p>
+          <span>Active User</span>
+        </div>
+        <div className="border-l-2 border-blue-500 pl-4">
+          <p className="text-6xl text-blue-500">4.8/5</p>
+          <span>User Rating</span>
+        </div>
+        <div className="border-l-2 border-blue-500 pl-4">
+          <p className="text-6xl text-blue-500">15+</p>
+          <span>Yeasr Experience</span>
+        </div>
+      </section>
       <section className="w-full min-h-screen py-10 px-1 flex flex-col md:flex-row gap-10 bg-white">
         <div className="md:basis-[60%] w-full flex flex-col justify-center gap-5 md:p-10 p-2">
           <h1>
@@ -340,19 +391,28 @@ const Home = () => {
             Semper quis mus ipsum fringilla vulputate. Parturient class libero
             nostra a sollicitudin consectetuer faucibus.
           </p>
-          <p className="text-sm text-justify" data-aos="fade-down">
-            Ullamcorper curae dictum ante primis montes bibendum a fames tortor
-            imperdiet. Consequat sapien vehicula nascetur finibus sodales
-            gravida parturient tempus sem. Facilisi habitasse ultricies curae
-            ultrices aptent at hac gravida. Semper nam nulla nullam ipsum tempus
-            consequat metus curabitur ridiculus himenaeos. Gravida nibh
-            consectetur nam augue facilisi amet parturient.
-          </p>
-          <div>
-            <button className="btn_color" data-aos="flip-right">
-              Discover More
-            </button>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {features.map((feature) => (
+              <div
+                key={feature.id}
+                className="flex gap-5 rounded-xl p-2  shadow-md"
+              >
+                <span className="">
+                  <span className="inline-block rounded-sm text-2xl p-3 bg-blue-500 text-white">
+                    {feature.icon}
+                  </span>
+                </span>
+                <div>
+                  {" "}
+                  <h3 className="mb-2 text-md font-semibold">
+                    {feature.title}
+                  </h3>
+                  <p>{feature.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
+          <div></div>
         </div>
 
         <div
@@ -371,6 +431,30 @@ const Home = () => {
             alt=""
             className="absolute w-full rounded-2xl h-[290px]  md:h-[60%]"
           />
+        </div>
+      </section>
+
+      <section
+        className="my-5 py-24 bg-no-repeat bg-left bg-cover"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(237,244,249, 0.8), rgba(237,244,249, 0.8)),url(./pattern.png)",
+        }}
+      >
+        <div className="max-w-[700px] mx-auto flex items-center justify-center flex-col gap-5">
+          <p>
+            <span className="title !bg-blue-200">Testimonials</span>
+          </p>
+          <h1 className="text-max-48">What Clients Say About Kenepay</h1>
+          <p className="text-md text-center text-gray-400">
+            (4.8/5) Over 10,000+ reviews from customers!
+          </p>
+        </div>
+
+        <div className="flex logos gap-5 px-5 mt-10">
+          {cardData.map((item) => (
+            <PaymentCard {...item} key={item.id} />
+          ))}
         </div>
       </section>
     </main>
