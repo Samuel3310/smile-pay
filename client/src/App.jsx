@@ -9,19 +9,33 @@ import {
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Signup from "./pages/auth/Signup";
-import LogIn from "./pages/auth/LogIn";
+
+import LogIn from "./pages/auth/login";
+import SignUp from "./pages/auth/signup";
+import Dashboard from "./pages/dashboard";
+import InnerDash from "./components/dashboard/dashboard";
+import Profile from "./components/dashboard/profile";
+import Referrals from "./components/dashboard/referrals";
+import Settings from "./components/dashboard/settings";
+import Support from "./components/dashboard/support";
+import Trades from "./components/dashboard/trades";
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-
       <Routes>
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<InnerDash />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="referrals" element={<Referrals />} />
+          <Route path="setting" element={<Settings />} />
+          <Route path="support" element={<Support />} />
+          <Route path="trades" element={<Trades />} />
+        </Route>
 
         <Route path="*" element={<h1>404 Not Found</h1>} />
       </Routes>

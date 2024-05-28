@@ -14,21 +14,21 @@ function Navbar() {
     },
     {
       title: "About Us",
-      href: "/about",
+      href: "/",
     },
     {
       title: "Services",
-      href: "/docs/primitives/progress",
+      href: "/",
       description:
         "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
     },
     {
       title: "Contact Us",
-      href: "/contact",
+      href: "/",
     },
     {
       title: "Pages",
-      href: "/pages",
+      href: "/",
       description:
         "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
     },
