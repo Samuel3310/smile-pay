@@ -48,7 +48,11 @@ const Dashboard = () => {
     navigate("/login");
   };
 
-  console.log(pathname);
+  const [hide, setHide] = useState(false);
+
+  const handleHide = () => {
+    setHide(!hide);
+  };
   return (
     <div className="relative">
       <nav className="w-full flex justify-between items-center py-4 px-10 shadow-md fixed z-10 bg-white top-0 gap-3">
@@ -61,7 +65,7 @@ const Dashboard = () => {
         <div>
           <p className="text-[12px] md:text-base">
             You are welcome, Mr.{" "}
-            <span className="text-blue-500">
+            <span className="text-purple-500 font-semibold">
               {getData.name ? getData.name.split(" ")[0] : ""}
             </span>
           </p>
@@ -72,8 +76,28 @@ const Dashboard = () => {
         >
           Logout
         </button>
-        <span className="cursor-pointer md:hidden">
-          <GiHamburgerMenu size={24} />
+        <span className="cursor-pointer md:hidden relative">
+          <FaUser
+            size={20}
+            className="text-purple-600 cursor-pointer"
+            onClick={handleHide}
+          />
+          <span
+            className={` right-0 bg-white p-4 shadow-xl flex flex-col gap-3 ${
+              hide ? "absolute" : "hidden"
+            } top-10 rounded-lg`}
+          >
+            <p className="p-2 border-2   rounded-lg border-purple-300">
+              Profile
+            </p>
+            <div className="w-full h-[1px] bg-slate-300" />
+            <button
+              onClick={handleLogout}
+              className="py-2 inline-block px-3 bg-red-500 rounded-md text-white min-w-[200px] "
+            >
+              Logout
+            </button>
+          </span>
         </span>
       </nav>
 
@@ -115,13 +139,13 @@ const Dashboard = () => {
               <span
                 className={`text-[12px] p-1 text-blue-500 ${
                   pathname === `/dashboard/${item.to}` || pathname === item.to
-                    ? " upper translate-y-[-15px] text-white "
+                    ? " upper translate-y-[-15px] text-white font-semibold"
                     : "translate-y-[-3px] "
-                } text-blue-500 shadow-md  rounded-full transition-[transform, box-shadow, color] duration-500 `}
+                } text-purple-500 shadow-md  rounded-full transition-[transform, box-shadow, color] duration-500 `}
               >
                 {item.name}
               </span>
-              <span className="text-blue-500 bg-white p-2 rounded-full shadow-md">
+              <span className="text-purple-500 bg-white p-2 rounded-full shadow-md">
                 {item.icon}
               </span>
             </Link>

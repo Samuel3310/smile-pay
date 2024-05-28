@@ -75,7 +75,7 @@ const LogIn = () => {
             </button>
           </div>
           <p>
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link to="/signup" className="text-purple-600">
               Sign Up
             </Link>
