@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import Form from "../../../components/form";
 import { Link, useNavigate } from "react-router-dom";
 import { FaRegSmileWink } from "react-icons/fa";
-const storedData = localStorage.getItem("store");
-
+const storedData = window.localStorage.getItem("store");
 const LogIn = () => {
   const [formData, setFormData] = useState({
     fullName: "",

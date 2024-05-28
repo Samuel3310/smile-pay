@@ -21,7 +21,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("store", JSON.stringify(formData));
+    window.localStorage.setItem("store", JSON.stringify(formData));
     navigate("/login");
     console.log(formData);
   };
