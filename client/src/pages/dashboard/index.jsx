@@ -23,7 +23,7 @@ const menuItems = [
 const mobile = [
   { name: "Dashboard", icon: <FaTachometerAlt size={20} />, to: "/dashboard" },
   { name: "Trades", icon: <FaExchangeAlt size={20} />, to: "trades" },
-  { name: "Profile", icon: <FaUser size={20} />, to: "profile" },
+  // { name: "Profile", icon: <FaUser size={20} />, to: "profile" },
   { name: "Referrals", icon: <FaUsers size={20} />, to: "referrals" },
   //   { name: "Support", icon: <FaLifeRing size={20} />, to: "support" },
   //   { name: "Setting", icon: <FaCog size={20} />, to: "setting" },
@@ -56,7 +56,7 @@ const Dashboard = () => {
   return (
     <div className="relative">
       <nav className="w-full flex justify-between items-center py-4 px-10 shadow-md fixed z-10 bg-white top-0 gap-3">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 animate-bounce">
           <FaRegSmileWink size={24} className="text-purple-700" />
           <span className="cursor-pointer hidden md:inline-block">
             <GiHamburgerMenu size={24} />
@@ -129,7 +129,7 @@ const Dashboard = () => {
             </button>
           </div>
         </section>
-        <div className="sm:hidden fixed bottom-0 flex w-full justify-between  py-3 px-3">
+        <div className="sm:hidden bg-white fixed z-50 bottom-0 flex w-full justify-between  py-3 px-3">
           {mobile.map((item) => (
             <Link
               to={item.to}
@@ -139,9 +139,9 @@ const Dashboard = () => {
               <span
                 className={`text-[12px] p-1 text-blue-500 ${
                   pathname === `/dashboard/${item.to}` || pathname === item.to
-                    ? " upper translate-y-[-15px] text-white font-semibold"
-                    : "translate-y-[-3px] "
-                } text-purple-500 shadow-md  rounded-full transition-[transform, box-shadow, color] duration-500 `}
+                    ? " upper translate-y-[-10px] text-white font-semibold"
+                    : "translate-y-[-3px] text-purple-800 "
+                }  shadow-md  rounded-full transition-[transform, box-shadow, color] duration-500 `}
               >
                 {item.name}
               </span>
@@ -151,7 +151,7 @@ const Dashboard = () => {
             </Link>
           ))}
         </div>
-        <section className="sidenav p-4 md:basis-full">{<Outlet />}</section>
+        <section className=" w-full min-h-screen">{<Outlet />}</section>
       </main>
     </div>
   );

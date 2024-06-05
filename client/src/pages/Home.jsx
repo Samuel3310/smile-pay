@@ -102,11 +102,11 @@ const Home = () => {
                 className="text-max-80 leading-] font-bold text-white"
                 style={{ lineHeight: 1.1 }}
               >
-                Make Life Simpler With KenePay
+                Make Life Simpler With Smile&apos;s Pay
               </h1>
               <p className="text-lg text-gray-300 max-w-[500px]">
-                Nibh odio si tristique suscipit turpis. Mauris enim ridiculus
-                vehicula efficitur venenatis porttitor aliquet urna. Aenean
+                Welcome to Smile&apos;s Pay - Experience Seamless, Secure, and
+                Swift Transaction with a Smile!
               </p>
               <div className="flex gap-5 my-3">
                 <Link
